@@ -1,0 +1,76 @@
+<script setup>
+
+    const props = defineProps({
+        text: {
+            type: String,
+            required: true
+        },
+        icon: {
+            type: String,
+            required: false
+        },
+        onClickEvent:{
+            type: Function,
+            required: false,
+        },
+        anchor: {
+            type: String,
+            required: false
+        }
+    })
+
+    let data = {
+        download: 'Bruno-Perdona-CV'
+    }
+
+
+</script>
+
+<template>
+    <a :href="props.anchor" v-bind="data">
+        <button v-on:click="props.onClickEvent" >
+            <p>{{props.text}}</p>
+            <font-awesome-icon
+                v-if="props.icon"
+                :icon="props.icon"
+                style="--fa-animation-duration: 3s;"
+                size="lg"
+                color="white" 
+            />
+        </button>
+    </a>
+</template>
+
+<style scoped>
+a{
+    text-decoration: none;
+}
+
+a > button{
+    display: flex;
+    gap: .5rem;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 1.5rem;
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    background-color: #0a0a0a;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 1px 1px 0px #16a34a;
+}
+
+a > button:hover{
+    background-color: rgb(21, 128, 61);
+    box-shadow: none;
+}
+
+a > button > p {
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    font-size: 1rem;
+}
+</style>

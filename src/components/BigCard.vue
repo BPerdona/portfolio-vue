@@ -35,6 +35,7 @@ const props = defineProps({
             <div class="chips-wrapper" style="display: flex; gap: 10px;">
                 <AppChip 
                     v-for="tech in props.stacks"
+                    :key="tech"
                     :text="tech"
                 />
             </div>
@@ -53,12 +54,13 @@ const props = defineProps({
 <style scoped>
 
 .card-button{
-    padding-top: 2rem;
+    margin-top: 2rem;
 }
 
 .card-wrapper{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-wrapper{

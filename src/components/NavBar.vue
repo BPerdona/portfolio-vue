@@ -86,6 +86,7 @@ watchEffect(() => {
     .nav-buttons{
         display: flex;
         align-items: center;
+        gap: 1rem;
     }
 
     .theme-switch{

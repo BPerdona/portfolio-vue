@@ -3,6 +3,7 @@ import AppButton from '../components/AppButton.vue';
 import AppChip from '../components/AppChip.vue';
 import BigCard from '../components/BigCard.vue';
 import NavBar from '../components/NavBar.vue';
+import AppFooter from '../components/AppFooter.vue'
 
 </script>
 
@@ -125,8 +126,8 @@ import NavBar from '../components/NavBar.vue';
       :stacks="['Kotlin', 'Android', 'Python', 'Django', 'MySQL']"
     />
   </div>
-  
-  <h2 class="subtitle" id="contact">Contato</h2>
+
+  <AppFooter id="contact"/>
 </template>
 
 <style scoped>

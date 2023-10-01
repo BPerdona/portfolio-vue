@@ -49,7 +49,6 @@
 <style scoped>
 a{
     text-decoration: none;
-    margin-right: 1.5rem;
 }
 
 a > button{

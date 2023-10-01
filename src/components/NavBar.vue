@@ -5,7 +5,6 @@ import AppButton from './AppButton.vue';
 
 const defaultName = "Bruno Perdoná"
 const title = ref('')
-const pipe = ref('|')
 
 watchEffect(() => {
     setInterval(()=>{
@@ -20,26 +19,31 @@ watchEffect(() => {
 <template>
     <nav>
         <div class="nav-title-wrapper">
-            <h1>{{ title }}{{pipe}}</h1>
+            <h1>{{ title }}|</h1>
         </div>
         <div class="buttons-wrapper">
             <div class="nav-buttons">
                 <AppButton
                     text="Início"
+                    anchor="#"
                 />
                 <AppButton
                     text="Sobre"
+                    anchor="#about"
                 />
                 <AppButton
                     text="Projetos"
+                    anchor="#project"
                 />
                 <AppButton
                     text="Contato"
+                    anchor="#contact"
                 />
                 <AppButton
                     text="Curriculo"
                     anchor="..\..\Currículo-FullStack.pdf"
                     icon="fa-solid fa-download"
+                    :download="{download: 'Bruno-Perdona-CV'}"
                 />
                 <AppButton
                     text="Playground"
@@ -61,7 +65,7 @@ watchEffect(() => {
         padding: 1.25rem 1.25rem;
         justify-content:space-between;
 
-        box-shadow: 0px 1px 5px 0px #171717;
+        box-shadow: 0px 1px 5px 0px #0e0e0e;
     }
 
     .nav-title-wrapper{

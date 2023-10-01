@@ -16,19 +16,24 @@
         anchor: {
             type: String,
             required: false
+        },
+        fullWidth:{
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        download:{
+            type: Object,
+            required: false,
         }
     })
-
-    let data = {
-        download: 'Bruno-Perdona-CV'
-    }
 
 
 </script>
 
 <template>
-    <a :href="props.anchor" v-bind="data">
-        <button v-on:click="props.onClickEvent" >
+    <a :href="props.anchor" v-bind="props.download" :class="props.buttonClass">
+        <button v-on:click="props.onClickEvent" :class="props.fullWidth ? 'full-width-button' : ''">
             <p>{{props.text}}</p>
             <font-awesome-icon
                 v-if="props.icon"
@@ -44,6 +49,7 @@
 <style scoped>
 a{
     text-decoration: none;
+    margin-right: 1.5rem;
 }
 
 a > button{
@@ -53,7 +59,6 @@ a > button{
     justify-content: center;
     align-items: center;
 
-    margin-right: 1.5rem;
     padding: .5rem 1.5rem .5rem 1.5rem;
     background-color: #0a0a0a;
     border: none;
@@ -61,6 +66,10 @@ a > button{
     color: white;
     cursor: pointer;
     box-shadow: 0px 1px 1px 0px #16a34a;
+}
+
+.full-width-button{
+    width: 100%;
 }
 
 a > button:hover{

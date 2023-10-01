@@ -1,6 +1,7 @@
 <script setup>
 import AppButton from '../components/AppButton.vue';
 import AppChip from '../components/AppChip.vue';
+import BigCard from '../components/BigCard.vue';
 import NavBar from '../components/NavBar.vue';
 
 </script>
@@ -16,7 +17,7 @@ import NavBar from '../components/NavBar.vue';
   </div>
 
   <!-- Info Section -->
-  <div class="info-section">
+  <div class="info-section" id="about">
     <div class="about-me section">
       <h2 class="section-title">Sobre mim</h2>
       <ul>
@@ -31,6 +32,7 @@ import NavBar from '../components/NavBar.vue';
           text="Curriculo"
           icon="fa-solid fa-download"
           anchor="..\..\Currículo-FullStack.pdf"
+          :download="{download: 'Bruno-Perdona-CV'}"
         />
       </div>
     </div>
@@ -102,7 +104,29 @@ import NavBar from '../components/NavBar.vue';
   </div>
 
   <!-- Projects List -->
-  <h2 class="project-title">Projetos</h2>
+  <h2 class="subtitle" id="project">Projetos</h2>
+  <div class="project-wrapper">
+    <BigCard
+      photo_url="public\prontuario-2.png"
+      title="Sistema de gestão para o CRAS"
+      description="Sistema de controle de usuários desenvolvido para atender todas as unidades do CRAS (Centro de Referencia a Assistência Social). Possibilitando o acesso, registro e controle de atendimentos e usuários."
+      :stacks="['Python', 'Django', 'JavaScript', 'HMTL', 'Bootstrap', 'MySQL']"
+
+    />
+    <BigCard
+      photo_url="public\Image-Cluster-1.png"
+      title="Image Cluster"
+      description="Aplicativo Mobile nativo Android que utiliza o algoritmo KMeans no qual mapeia toda a imagem que o usuário inseriu e retorna os Centroids de cada pixel, refazendo a imagem por completo e retornando os valores."
+      :stacks="['Kotlin', 'Android', 'Jetpack Compose', 'Machine Learn']"
+    />
+    <BigCard
+      title="Aquilombar"
+      description="Aplicativo e site desenvolvido para listar todas as faculdade do Instituto Federal juntamente com todos seus os seus cursos, bolsas, endereço e iagens para que os usuários tenham conhecimento."
+      :stacks="['Kotlin', 'Android', 'Python', 'Django', 'MySQL']"
+    />
+  </div>
+  
+  <h2 class="subtitle" id="contact">Contato</h2>
 </template>
 
 <style scoped>
@@ -148,6 +172,7 @@ import NavBar from '../components/NavBar.vue';
 
 .section{
   padding: 2rem;
+  padding-top: 6rem;
   flex-basis: 50%;
 }
 
@@ -184,8 +209,7 @@ import NavBar from '../components/NavBar.vue';
 }
 
 .info-end{
-  height: 10rem;
-
+  height: 3.5rem;
   display: flex;
   justify-content: center;
 }
@@ -196,6 +220,19 @@ import NavBar from '../components/NavBar.vue';
   border-radius: 50rem;
   background-color: rgba(22,163,74,1);
   margin: -1px;
+}
+
+.subtitle{
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  padding: 5.5rem 0 3rem 0;
+}
+
+.project-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
 }
 
 </style>

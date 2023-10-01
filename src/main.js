@@ -11,12 +11,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret, faWind, faLeaf, faDownload, faBatteryEmpty } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faWind, faLeaf, faDownload, faBatteryEmpty, faBars } from '@fortawesome/free-solid-svg-icons'
 
 import { faJava, faJs, faPython, faVuejs, faReact, faAngular, faAndroid, faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faJava, faJs, faPython, faVuejs, faReact, faAngular, faWind, faAndroid, faLeaf, faDownload, faBatteryEmpty, faGithub, faLinkedin, faWhatsapp)
+library.add(faUserSecret, faJava, faJs, faPython, faVuejs, faReact, faAngular, faWind, faAndroid, faLeaf, faDownload, faBatteryEmpty, faGithub, faLinkedin, faWhatsapp, faBars)
 
 const app = createApp(App)
 

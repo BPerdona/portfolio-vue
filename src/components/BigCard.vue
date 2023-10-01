@@ -66,7 +66,7 @@ const props = defineProps({
 .card-wrapper{
     width: 30rem;
     padding: 1rem;
-    margin:1rem;
+    margin: 1rem;
     border-radius: .5rem;
     background-color: #040404;
 
@@ -97,6 +97,20 @@ const props = defineProps({
 .chips-wrapper{
     padding: 0.5rem 0 1rem 0;
     flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+
+    .card-wrapper{
+        width: 22rem;
+        margin: 0rem;
+    }
+    .card-info > p{
+        line-height: 95%;
+    }
+    .card-info > img{
+
+    }
 }
 
 </style>

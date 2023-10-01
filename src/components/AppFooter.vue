@@ -190,5 +190,25 @@ import AppButton from './AppButton.vue';
     padding-bottom: 1rem;
     text-align: center;
   }
+
+  @media (max-width: 768px) { 
+    .footer-wrapper{
+      display: block;
+    }
+
+    .footer-sinopse, .footer-links{
+      padding-bottom: 2.5rem;
+    }
+
+    .footer-wrapper {
+      padding-top: 3rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .footer-divider{
+      margin: 2rem 2rem 2rem 2rem;
+    }
+  }
   
 </style>

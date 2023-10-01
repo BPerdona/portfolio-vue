@@ -3,7 +3,7 @@ import AppButton from '../components/AppButton.vue';
 import AppChip from '../components/AppChip.vue';
 import BigCard from '../components/BigCard.vue';
 import NavBar from '../components/NavBar.vue';
-import AppFooter from '../components/AppFooter.vue'
+import AppFooter from '../components/AppFooter.vue';
 
 </script>
 
@@ -107,24 +107,27 @@ import AppFooter from '../components/AppFooter.vue'
   <!-- Projects List -->
   <h2 class="subtitle" id="project">Projetos</h2>
   <div class="project-wrapper">
-    <BigCard
-      photo_url="public\prontuario-2.png"
+    <div class="project-grid">
+      <BigCard
+      photo_url="\prontuario-2.png"
       title="Sistema de gestão para o CRAS"
       description="Sistema de controle de usuários desenvolvido para atender todas as unidades do CRAS (Centro de Referencia a Assistência Social). Possibilitando o acesso, registro e controle de atendimentos e usuários."
       :stacks="['Python', 'Django', 'JavaScript', 'HMTL', 'Bootstrap', 'MySQL']"
-
-    />
-    <BigCard
-      photo_url="public\Image-Cluster-1.png"
+      
+      />
+      <BigCard
+      photo_url="\Image-Cluster-1.png"
       title="Image Cluster"
       description="Aplicativo Mobile nativo Android que utiliza o algoritmo KMeans no qual mapeia toda a imagem que o usuário inseriu e retorna os Centroids de cada pixel, refazendo a imagem por completo e retornando os valores."
       :stacks="['Kotlin', 'Android', 'Jetpack Compose', 'Machine Learn']"
-    />
-    <BigCard
+      />
+      <BigCard
+      photo_url="\aquilombar-1.png"
       title="Aquilombar"
       description="Aplicativo e site desenvolvido para listar todas as faculdade do Instituto Federal juntamente com todos seus os seus cursos, bolsas, endereço e iagens para que os usuários tenham conhecimento."
       :stacks="['Kotlin', 'Android', 'Python', 'Django', 'MySQL']"
-    />
+      />
+    </div>
   </div>
 
   <AppFooter id="contact"/>
@@ -223,6 +226,18 @@ import AppFooter from '../components/AppFooter.vue'
   margin: -1px;
 }
 
+.project-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.project-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
+}
+
 .subtitle{
   text-align: center;
   color: white;
@@ -230,10 +245,49 @@ import AppFooter from '../components/AppFooter.vue'
   padding: 5.5rem 0 3rem 0;
 }
 
-.project-wrapper{
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 5rem;
+@media (max-width: 1536px) {
+  .project-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .banner-wrapper > p{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .info-end-ball, .info-end, .divider{
+    display: none;
+  }
+
+  .info-section{
+    display: block;
+  }
+
+  .banner-wrapper>p{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) { 
+
+  
+  .banner-wrapper{
+    padding: 3rem 1rem 3rem 1rem;
+  }
+  .banner-wrapper>h1{
+    font-size: 2.8125rem;
+  }
+  
+  .banner-wrapper>p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 110%;
+  }
+
 }
 
 </style>

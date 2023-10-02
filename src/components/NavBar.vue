@@ -1,6 +1,7 @@
 <script setup>
-import {ref, watchEffect, computed} from 'vue'
+import {ref, watchEffect} from 'vue'
 import AppButton from './AppButton.vue';
+import router from '../router';
 
 
 const defaultName = "Bruno Perdoná"
@@ -106,7 +107,7 @@ watchEffect(() => {
     .nav-title-wrapper > h1{
         color: white;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 2.5rem;
     }
 
     .buttons-wrapper{
@@ -169,6 +170,9 @@ watchEffect(() => {
     @media (max-width: 1024px) {
         .nav-buttons{
             display: none;
+        }
+        .nav-title-wrapper > h1{
+            font-size: 2.0rem;
         }
 
         .menu-button{

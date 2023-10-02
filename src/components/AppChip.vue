@@ -23,7 +23,7 @@ const props = defineProps({
 <template>
     <div class="chip-wrapper">
         <font-awesome-icon
-            v-show="props.icon"
+            v-if="props.icon"
             :icon="props.icon"
             :class="props.animate"
             style="--fa-animation-duration: 3s;"

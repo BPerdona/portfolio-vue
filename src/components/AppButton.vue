@@ -25,6 +25,10 @@
         download:{
             type: Object,
             required: false,
+        },
+        target:{
+            type: Object,
+            required:false
         }
     })
 
@@ -32,7 +36,7 @@
 </script>
 
 <template>
-    <a :href="props.anchor" v-bind="props.download" :class="props.buttonClass">
+    <a :href="props.anchor" v-bind="props.download, props.target" :class="props.buttonClass">
         <button v-on:click="props.onClickEvent" :class="props.fullWidth ? 'full-width-button' : ''">
             <p>{{props.text}}</p>
             <font-awesome-icon

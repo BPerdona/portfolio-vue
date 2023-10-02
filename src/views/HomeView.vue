@@ -1,9 +1,30 @@
 <script setup>
+import {ref, reactive} from 'vue'
+import data from '../utils/portfolioData'
 import AppButton from '../components/AppButton.vue';
 import AppChip from '../components/AppChip.vue';
 import BigCard from '../components/BigCard.vue';
 import NavBar from '../components/NavBar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import Modal from '../components/Modal.vue';
+
+const showModal = ref(false)
+var modelData = reactive({
+  title: "Generic Title",
+  description: "Generic Description",
+  tags: [],
+  role: 'Role',
+  imagens_path: [],
+  features: [],
+  github: null
+})
+
+function updateModelData(id=0){
+  let model = data[id]
+  modelData = model
+
+  showModal.value = true
+}
 
 </script>
 
@@ -108,29 +129,73 @@ import AppFooter from '../components/AppFooter.vue';
   <h2 class="subtitle" id="project">Projetos</h2>
   <div class="project-wrapper">
     <div class="project-grid">
-      <BigCard
-      photo_url="\prontuario-2.png"
-      title="Sistema de gestão para o CRAS"
-      description="Sistema de controle de usuários desenvolvido para atender todas as unidades do CRAS (Centro de Referencia a Assistência Social). Possibilitando o acesso, registro e controle de atendimentos e usuários."
-      :stacks="['Python', 'Django', 'JavaScript', 'HMTL', 'Bootstrap', 'MySQL']"
-      
-      />
-      <BigCard
-      photo_url="\Image-Cluster-1.png"
-      title="Image Cluster"
-      description="Aplicativo Mobile nativo Android que utiliza o algoritmo KMeans no qual mapeia toda a imagem que o usuário inseriu e retorna os Centroids de cada pixel, refazendo a imagem por completo e retornando os valores."
-      :stacks="['Kotlin', 'Android', 'Jetpack Compose', 'Machine Learn']"
-      />
-      <BigCard
-      photo_url="\aquilombar-1.png"
-      title="Aquilombar"
-      description="Aplicativo e site desenvolvido para listar todas as faculdade do Instituto Federal juntamente com todos seus os seus cursos, bolsas, endereço e iagens para que os usuários tenham conhecimento."
-      :stacks="['Kotlin', 'Android', 'Python', 'Django', 'MySQL']"
-      />
+        <BigCard
+          v-for="(project, key) in data"
+          :photo_url="project.imagens_path[0]"
+          :title="project.title"
+          :description="project.description"
+          :stacks="project.tags"
+          :button-click-action="(event)=>{updateModelData(key)}"
+        />
     </div>
   </div>
 
+  <!-- Footer -->
   <AppFooter id="contact"/>
+
+  <!-- Modal -->
+  <Modal :show="showModal" @close="showModal = false">
+    <template #header>
+      <h2 class="modal-title">{{ modelData.title }}</h2>
+    </template>
+    <template #body>
+      <div class="modal-image-container" >
+      <img 
+        class="modal-image"
+        v-for="image in modelData.imagens_path" 
+        :src="image" 
+        alt="Project Image">
+      </div>
+      <div class="modal-content">
+        <div class="modal-section">
+          <h2>Descrição</h2>
+          <p>{{ modelData.description  }}</p>
+        </div>
+        <div class="modal-section">
+            <h2>Tecnologias</h2>
+            <div class="chips">
+              <AppChip
+                v-for="chip in modelData.tags"
+                :text="chip"
+              />
+            </div>
+        </div>
+      </div>
+      <div class="modal-features">
+        <h2>Features</h2>
+        <ul>
+            <li v-for="feature in modelData.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </template>
+    <template #footer>
+      <div class="modal-footer">
+        <h4>Projeto: {{ modelData.role }}</h4>
+        <div class="modal-button">
+          <AppButton
+            v-show="modelData.github"
+            text="Projeto - GitHub"
+            :anchor="modelData.github"
+            :target="{target: '_blank'}"
+          />
+          <h4 v-show="!modelData.github" style="color: red;">
+            Código fonte fechado
+          </h4>
+        </div>
+      </div>
+    </template>
+  </Modal>
+
 </template>
 
 <style scoped>
@@ -236,6 +301,7 @@ import AppFooter from '../components/AppFooter.vue';
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: space-evenly;
   padding-bottom: 5rem;
+  gap: 2rem;
 }
 
 .subtitle{
@@ -245,10 +311,82 @@ import AppFooter from '../components/AppFooter.vue';
   padding: 5.5rem 0 3rem 0;
 }
 
+.modal-title{
+  font-size: 2rem;
+}
+
+.modal-image-container{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.modal-image{
+  width: 100%;
+  max-height: 30rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  box-shadow: 0px 2px 2px 0px #000000b8;
+}
+
+.modal-image:hover{
+  transform: scale(1.1);
+}
+
+.modal-content{
+  display: flex;
+}
+
+.modal-section{
+  padding-top: 1rem;
+  flex-basis: 50%;
+}
+
+.modal-section{
+  padding-top: 1rem;
+  flex-basis: 50%;
+}
+
+.modal-section > h2{
+  padding-bottom: 0.5rem;
+}
+
+.modal-section > p{
+  padding-right: 2rem;
+}
+
+.modal-features > h2{
+  padding-top: .5rem;
+}
+
+.modal-features > ul{
+  list-style: none;
+  padding-left: 2rem;
+}
+
+.modal-features > ul > li::before {
+    content: "\2022";
+    color: #16a34a;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+
+.modal-footer{
+  display: flex;
+
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+
 @media (max-width: 1536px) {
   .project-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
   }
 
   .banner-wrapper > p{
@@ -270,11 +408,37 @@ import AppFooter from '../components/AppFooter.vue';
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  .project-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .modal-title{
+    font-size: 1.5rem;
+  }
+
+  .modal-image-container{
+    display: block;
+  }
+
+  .modal-image{
+    width: 100%;
+    max-height: 20rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    border: none;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .modal-image:hover{
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) { 
 
-  
   .banner-wrapper{
     padding: 3rem 1rem 3rem 1rem;
   }
@@ -286,6 +450,10 @@ import AppFooter from '../components/AppFooter.vue';
     padding-left: 1rem;
     padding-right: 1rem;
     line-height: 110%;
+  }
+
+  .modal-content{
+    display: block;
   }
 
 }

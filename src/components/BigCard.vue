@@ -20,6 +20,10 @@ const props = defineProps({
     stacks:{
         type: Array,
         required: true
+    },
+    buttonClickAction:{
+        type: Function,
+        required: true
     }
 })
 
@@ -45,6 +49,7 @@ const props = defineProps({
             <AppButton 
                 text="Mais detalhes"
                 :full-width="true"
+                :on-click-event="props.buttonClickAction"
                 />
         </div>
         
@@ -66,7 +71,6 @@ const props = defineProps({
 .card-wrapper{
     width: 30rem;
     padding: 1rem;
-    margin: 1rem;
     border-radius: .5rem;
     background-color: #040404;
 
@@ -106,10 +110,7 @@ const props = defineProps({
         margin: 0rem;
     }
     .card-info > p{
-        line-height: 95%;
-    }
-    .card-info > img{
-
+        line-height: 105%;
     }
 }
 

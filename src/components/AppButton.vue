@@ -29,6 +29,14 @@
         target:{
             type: Object,
             required:false
+        },
+        isRouter:{
+            type: Boolean,
+            default: false
+        },
+        routerTo:{
+            type: String,
+            default: '/'
         }
     })
 
@@ -36,7 +44,7 @@
 </script>
 
 <template>
-    <a :href="props.anchor" v-bind="props.download, props.target" :class="props.buttonClass">
+    <a v-if="!isRouter" :href="props.anchor" v-bind="props.download, props.target" :class="props.buttonClass">
         <button v-on:click="props.onClickEvent" :class="props.fullWidth ? 'full-width-button' : ''">
             <p>{{props.text}}</p>
             <font-awesome-icon
@@ -48,6 +56,7 @@
             />
         </button>
     </a>
+    <RouterLink v-if="isRouter" :to="routerTo" class="router-button">{{ text }}</RouterLink>
 </template>
 
 <style scoped>
@@ -55,7 +64,7 @@ a{
     text-decoration: none;
 }
 
-a > button{
+a > button, .router-button{
     display: flex;
     gap: .5rem;
 
@@ -75,7 +84,7 @@ a > button{
     width: 100%;
 }
 
-a > button:hover{
+a > button:hover, .router-button:hover{
     background-color: rgb(21, 128, 61);
     box-shadow: none;
 }

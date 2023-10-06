@@ -1,14 +1,11 @@
 # vue-portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio desenvolvido utilizando vue juntamente com firebase no qual apresento meu perfil profissional como projetos, informações adicionais e alguns exemplos que criei na área de Playground. Caso queira dar uma olhada -> [Clique aqui!](https://bperdona.netlify.app/)
 
-## Recommended IDE Setup
+## Configuração
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Para testar o projeto será necessário criar uma projeto no Firebase, lembre-se de adicionar as chaves necessários no ``.env``
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -27,15 +24,4 @@ npm run dev
 ```sh
 npm run build
 ```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8a62603-c445-49a8-9ee8-c1e09e5d2560/deploy-status)](https://app.netlify.com/sites/bperdona/deploys)

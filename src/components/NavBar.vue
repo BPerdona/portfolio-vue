@@ -1,7 +1,6 @@
 <script setup>
 import {ref, watchEffect} from 'vue'
 import AppButton from './AppButton.vue';
-import router from '../router';
 
 
 const defaultName = "Bruno Perdoná"
@@ -54,6 +53,8 @@ watchEffect(() => {
                     />
                     <AppButton
                         text="Playground"
+                        :is-router="true"
+                        router-to="/login"
                     />
                 </div>
                 <div class="menu-button">
@@ -78,7 +79,7 @@ watchEffect(() => {
                 target="_blank"
                 @click="toggle"
                 >Curriculo</a>
-            <a href="#" @click="toggle">Playground</a>
+            <a href="#" @click="()=>{ $router.push('/login')}">Playground</a>
         </div>
     </nav>
 </template>

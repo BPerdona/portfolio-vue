@@ -4,7 +4,7 @@ const data = {
       description: "Sistema de controle de usuários desenvolvido para atender todas as unidades do CRAS (Centro de Referencia a Assistência Social). Possibilitando o acesso, registro e controle de atendimentos e usuários.",
       tags: ['Python', 'Django', 'JavaScript', 'HTML', 'Bootstrap', 'MySQL'],
       role: 'Estágio',
-      imagens_path: ['\prontuario-1.png', '\prontuario-2.png'],
+      imagens_path: ['\prontuario-1.png', 'project_image\prontuario-2.png'],
       features: ['CRUD de usuário', 'Cadastro de Atendimento', 'Cadastro de Benefícios', 'Registro de todas as ações', 'Permissões', 'Autenticação', 'Chat de atendimento', 'Gerar PDF'],
       github: null
     },

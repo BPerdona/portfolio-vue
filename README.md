@@ -1,6 +1,6 @@
 # vue-portfolio
 
-Portfolio desenvolvido utilizando vue juntamente com firebase no qual apresento meu perfil profissional como projetos, informações adicionais e alguns exemplos que criei na área de Playground. Caso queira dar uma olhada -> [Clique aqui!](https://bperdona.netlify.app/)
+Portfólio desenvolvido utilizando vue juntamente com firebase no qual apresento meu perfil profissional como projetos, informações adicionais e alguns exemplos que criei na área de Playground. Caso queira dar uma olhada -> [Clique aqui!](https://bperdona.netlify.app/)
 
 ## Configuração
 

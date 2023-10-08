@@ -183,12 +183,14 @@ function updateModelData(id=0){
         <h4>Projeto: {{ modelData.role }}</h4>
         <div class="modal-button">
           <AppButton
-            v-show="modelData.github"
+            v-if="modelData.github"
             text="Projeto - GitHub"
             :anchor="modelData.github"
             :target="{target: '_blank'}"
           />
-          <h4 v-show="!modelData.github" style="color: red;">
+          <h4 
+            v-else="!modelData.github" 
+            style="color: red;">
             Código fonte fechado
           </h4>
         </div>

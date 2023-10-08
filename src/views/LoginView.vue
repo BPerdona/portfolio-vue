@@ -1,7 +1,7 @@
 <script setup>
 import AppInput from '../components/AppInput.vue'
 import AppButton from '../components/AppButton.vue'
-import {ref, watch} from 'vue'
+import {ref, watch, onMounted} from 'vue'
 import {auth} from '../firebase/init.js'
 import {validateEmail, validatePassword} from '../utils/validations.js'
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
@@ -30,6 +30,15 @@ async function logInUser(){
     loginErrorMessage.value = "Dados de login inválidos."
   })
 }
+
+onMounted(()=>{
+  auth.onAuthStateChanged((user)=>{
+    if(user){
+      router.push('/playground')
+    }
+  })
+});
+
 
 async function registerUser(){
   if(!formIsValid()){

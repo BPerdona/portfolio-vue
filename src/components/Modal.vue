@@ -39,8 +39,8 @@ const props = defineProps({
                         <slot name="footer">
                             <div class="modal-default-button">
                                 <AppButton
-                                text="Fechar"
-                                @click="$emit('close')"
+                                    text="Fechar"
+                                    @click="$emit('close')"
                                 />
                             </div>
                         </slot>

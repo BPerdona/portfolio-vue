@@ -1,14 +1,5 @@
 <script setup>
-import {onBeforeMount, ref} from 'vue'
-import router from '../router';
-
-const token = ref(localStorage.getItem('email'))
-
-onBeforeMount(()=>{
-    if(!localStorage.getItem('email')){
-        router.push('/login')
-    }
-})
+import AppButton from '../components/AppButton.vue';
 
 </script>
 
@@ -17,7 +8,11 @@ onBeforeMount(()=>{
 
     <div class="center">
         <h1>Sorry, working in progress!</h1>
-        <p>Logged as: {{ token }}</p>
+        <AppButton
+            text="Return"
+            :is-router="true"
+            router-to="/"
+        />
     </div>
 
 </template>

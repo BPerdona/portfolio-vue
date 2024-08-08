@@ -24,4 +24,4 @@ npm run dev
 ```sh
 npm run build
 ```
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b8a62603-c445-49a8-9ee8-c1e09e5d2560/deploy-status)](https://app.netlify.com/sites/bperdona/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8a62603-c445-49a8-9ee8-c1e09e5d2560/deploy-status)](https://bperdona.netlify.app)
